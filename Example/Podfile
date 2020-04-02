@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'Rudder-Bugsnag_Example' do
+  pod 'Rudder-Bugsnag', :path => '../'
+
+  target 'Rudder-Bugsnag_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
