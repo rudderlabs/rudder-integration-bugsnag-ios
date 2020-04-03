@@ -6,15 +6,29 @@
 //  Copyright (c) 2020 arnabp92. All rights reserved.
 //
 
+
 #import "_AppDelegate.h"
+#import <Rudder/Rudder.h>
+#import "RudderBugsnagFactory.h"
+
+static NSString *DATA_PLANE_URL = @"https://2f7a352d.ngrok.io";
+static NSString *CONTROL_PLANE_URL = @"https://2f7a352d.ngrok.io";
+static NSString *WRITE_KEY = @"1a1CQbOhJRxXtmz4XtaL5XaZSyD";
 
 @implementation _AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    RudderConfigBuilder *builder = [[RudderConfigBuilder alloc] init];
+    [builder withEndPointUrl:DATA_PLANE_URL];
+    [builder withConfigPlaneUrl:CONTROL_PLANE_URL];
+    [builder withFactory:[RudderBugsnagFactory instance]];
+    [builder withLoglevel:RudderLogLevelDebug];
+    [RudderClient getInstance:WRITE_KEY config:[builder build]];
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

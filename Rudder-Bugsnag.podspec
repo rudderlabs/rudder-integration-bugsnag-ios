@@ -32,6 +32,9 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'Rudder-Bugsnag/Classes/**/*'
   
+  s.dependency 'Rudder', '1.0.1-beta.4'
+  s.dependency 'Bugsnag', '~> 5.0'
+  
   # s.resource_bundles = {
   #   'Rudder-Bugsnag' => ['Rudder-Bugsnag/Assets/*.png']
   # }

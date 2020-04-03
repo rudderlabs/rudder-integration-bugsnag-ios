@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		2375DA6C65BDE3F971D0D014 /* Pods-Rudder-Bugsnag_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Bugsnag_Example.debug.xcconfig"; path = "Target Support Files/Pods-Rudder-Bugsnag_Example/Pods-Rudder-Bugsnag_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		26E31CC2FA8A7057B99E6807 /* Pods-Rudder-Bugsnag_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Bugsnag_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Rudder-Bugsnag_Tests/Pods-Rudder-Bugsnag_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		309C9848479C8AE1B2B1D024 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		309C9848479C8AE1B2B1D024 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		40A7540F58C83A3508C52825 /* Pods-Rudder-Bugsnag_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Bugsnag_Tests.release.xcconfig"; path = "Target Support Files/Pods-Rudder-Bugsnag_Tests/Pods-Rudder-Bugsnag_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Rudder-Bugsnag_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rudder-Bugsnag_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,8 +64,8 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A41914C1D465EA3F6C41809 /* Pods_Rudder_Bugsnag_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rudder_Bugsnag_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B84BA070621C1E4F9C69F1F2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		C2EF03D878065C614D996765 /* Rudder-Bugsnag.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "Rudder-Bugsnag.podspec"; path = "../Rudder-Bugsnag.podspec"; sourceTree = "<group>"; };
+		B84BA070621C1E4F9C69F1F2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C2EF03D878065C614D996765 /* Rudder-Bugsnag.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Rudder-Bugsnag.podspec"; path = "../Rudder-Bugsnag.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E3C2129CC07DA90ED6C7FE3B /* Pods_Rudder_Bugsnag_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rudder_Bugsnag_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -193,7 +193,6 @@
 				26E31CC2FA8A7057B99E6807 /* Pods-Rudder-Bugsnag_Tests.debug.xcconfig */,
 				40A7540F58C83A3508C52825 /* Pods-Rudder-Bugsnag_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -259,6 +258,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -325,10 +325,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Rudder-Bugsnag_Example/Pods-Rudder-Bugsnag_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bugsnag/Bugsnag.framework",
+				"${BUILT_PRODUCTS_DIR}/Rudder/Rudder.framework",
 				"${BUILT_PRODUCTS_DIR}/Rudder-Bugsnag/Rudder_Bugsnag.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bugsnag.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rudder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rudder_Bugsnag.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
