@@ -74,13 +74,13 @@
     else if ([type isEqualToString:@"screen"]){
         
         [[Bugsnag configuration] setContext:message.event];
-      //  [Bugsnag notifyError:[NSError errorWithDomain:@"com.example" code:408 userInfo:nil]];
+       [Bugsnag notifyError:[NSError errorWithDomain:@"com.example" code:408 userInfo:nil]];
         
     }
     else if([type isEqualToString:@"track"]){
         
         [Bugsnag leaveBreadcrumbWithMessage:message.event];
-        //[Bugsnag notifyError:[NSError errorWithDomain:@"com.example" code:408 userInfo:nil]];
+        [Bugsnag notifyError:[NSError errorWithDomain:@"com.example" code:408 userInfo:nil]];
         
     }
 }

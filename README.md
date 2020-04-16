@@ -19,7 +19,7 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'Rudder', '1.0.1-beta.4'
-pod 'Rudder-Bugsnag'
+pod 'Rudder-Bugsnag', '0.1.0-beta.1'
 ```
 
 ## Initialize ```RudderClient```
