@@ -9,14 +9,13 @@ Rudder is a platform for collecting, storing and routing customer event data to 
 Released under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## Getting Started with Bugsnag Integration of iOS SDK
-1. Add [Bugnsag](https://www.bugsnag.com/) as a destination in the [Dashboard](https://app.rudderstack.com/) aand define `apiKey`.
+1. Add [Bugnsag](https://www.bugsnag.com/) as a destination in the [Dashboard](https://app.rudderstack.com/) and define `apiKey`.
 
 
 3. Rudder-Bugsnag is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Rudder'
 pod 'Rudder-Bugsnag'
 ```
 
