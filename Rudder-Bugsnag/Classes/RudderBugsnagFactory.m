@@ -7,7 +7,6 @@
 
 #import "RudderBugsnagFactory.h"
 #import "RudderBugsnagIntegration.h"
-#import "RudderLogger.h"
 
 @implementation RudderBugsnagFactory
 
@@ -25,8 +24,8 @@ static RudderBugsnagFactory *sharedInstance;
     return @"Bugsnag";
 }
 
-- (nonnull id<RudderIntegration>)initiate:(nonnull NSDictionary *)config client:(nonnull RudderClient *)client rudderConfig:(nonnull RudderConfig *)rudderConfig {
-    [RudderLogger logDebug:@"Creating RudderIntegrationFactory"];
+- (nonnull id<RSIntegration>)initiate:(nonnull NSDictionary *)config client:(nonnull RSClient *)client rudderConfig:(nonnull RSConfig *)rudderConfig {
+    [RSLogger logDebug:@"Creating RudderIntegrationFactory"];
     return [[RudderBugsnagIntegration alloc] initWithConfig:config withAnalytics:client withRudderConfig:rudderConfig];
 }
 

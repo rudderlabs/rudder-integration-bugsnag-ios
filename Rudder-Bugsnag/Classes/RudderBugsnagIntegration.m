@@ -6,24 +6,23 @@
 //
 
 #import "RudderBugsnagIntegration.h"
-#import "RudderLogger.h"
 #import <Bugsnag/Bugsnag.h>
 
 @implementation RudderBugsnagIntegration
 
 #pragma mark - Initialization
 
-- (instancetype) initWithConfig:(NSDictionary *)config withAnalytics:(nonnull RudderClient *)client  withRudderConfig:(nonnull RudderConfig *)rudderConfig {
+- (instancetype) initWithConfig:(NSDictionary *)config withAnalytics:(nonnull RSClient *)client  withRudderConfig:(nonnull RSConfig *)rudderConfig {
     self = [super init];
     if(self){
         NSString *apiKey = [config objectForKey:@"apiKey"];
         [Bugsnag startBugsnagWithApiKey:apiKey];
-        [RudderLogger logDebug:@"Initializing Bugsnag SDK"];
+        [RSLogger logDebug:@"Initializing Bugsnag SDK"];
     }
     return self;
 }
 
-- (void) dump:(RudderMessage *)message {
+- (void) dump:(RSMessage *)message {
     @try {
         if (message != nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -31,11 +30,11 @@
             });
         }
     } @catch (NSException *ex) {
-        [RudderLogger logError:[[NSString alloc] initWithFormat:@"%@", ex]];
+        [RSLogger logError:[[NSString alloc] initWithFormat:@"%@", ex]];
     }
 }
 
-- (void) processRudderEvent: (nonnull RudderMessage *) message {
+- (void) processRudderEvent: (nonnull RSMessage *) message {
     NSString *type = message.type;
     
     if ([type isEqualToString:@"identify"]) {
@@ -59,7 +58,7 @@
         [Bugsnag leaveBreadcrumbWithMessage:message.event];
     }
     else {
-        [RudderLogger logDebug:@"Bugsnag Integration: Message Type not supported"];
+        [RSLogger logDebug:@"Bugsnag Integration: Message Type not supported"];
     }
 }
 

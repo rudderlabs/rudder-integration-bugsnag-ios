@@ -6,11 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Rudder/RudderIntegrationFactory.h>
+#import <Rudder/Rudder.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RudderBugsnagFactory : NSObject<RudderIntegrationFactory>
+@interface RudderBugsnagFactory : NSObject<RSIntegrationFactory>
 
 + (instancetype) instance;
 

@@ -20,11 +20,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    [[RudderClient sharedInstance] track:@"account: created"];
-    [[RudderClient sharedInstance] track:@"account: authenticated"];
-    [[RudderClient sharedInstance] track:@"account: signed in"];
-    [[RudderClient sharedInstance] identify:@"ruchiramoitra" traits:@{@"foo": @"bar", @"foo1": @"bar1", @"email": @"ruchira@gmail.com"} ];
-    [[RudderClient sharedInstance] screen:@"Screen opened"];
+    [[RSClient sharedInstance] track:@"account: created"];
+    [[RSClient sharedInstance] track:@"account: authenticated"];
+    [[RSClient sharedInstance] track:@"account: signed in"];
+    [[RSClient sharedInstance] identify:@"ruchiramoitra" traits:@{@"foo": @"bar", @"foo1": @"bar1", @"email": @"ruchira@gmail.com"} ];
+    [[RSClient sharedInstance] screen:@"Screen opened"];
    
 }
 

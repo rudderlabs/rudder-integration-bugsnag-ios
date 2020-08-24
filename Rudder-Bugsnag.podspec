@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Rudder-Bugsnag/Classes/**/*'
 
   s.dependency 'Rudder'
-  s.dependency 'Bugsnag', '~> 5.0'
+  s.dependency 'Bugsnag'
 end
