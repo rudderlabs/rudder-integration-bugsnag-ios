@@ -27,7 +27,7 @@ RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
 
 ## Send Events
 
-Follow the steps from the [RudderStack iOS SDK](https://github.com/rudderlabs/rudder-sdk-ios)
+Follow the steps from the [RudderStack iOS SDK](https://github.com/rudderlabs/rudder-sdk-ios).
 
 ## Contact Us
 
