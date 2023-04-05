@@ -65,7 +65,7 @@
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9q-dD-RHt">
                                                         <rect key="frame" x="0.0" y="240" width="355" height="60"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="tinted" title="Screen without properties">
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Screen with properties">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
                                                         </buttonConfiguration>
                                                         <connections>
