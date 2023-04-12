@@ -2,6 +2,9 @@ require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
+bugsnag_sdk_version = '~> 6.26'
+rudder_sdk_version = '~> 1.12'
+
 Pod::Spec.new do |s|
   s.name             = 'Rudder-Bugsnag'
   s.version          = package['version']
@@ -13,13 +16,26 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/rudderlabs/rudder-integration-bugsnag-ios'
   s.license          = { :type => 'Apache', :file => 'LICENSE' }
-  s.author           = {'RudderStack' => 'arnab@rudderlabs.com'}
+  s.author           = {'RudderStack' => 'arnab@rudderstack.com'}
   s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-bugsnag-ios.git', :tag => "v#{s.version}" }
 
-  s.ios.deployment_target = '8.0'
-
+  s.ios.deployment_target = '9.0'
   s.source_files = 'Rudder-Bugsnag/Classes/**/*'
 
-  s.dependency 'Rudder'
-  s.dependency 'Bugsnag'
+  if defined?($BugsnagSDKVersion)
+      Pod::UI.puts "#{s.name}: Using user specified Bugsnag SDK version '#{$BugsnagSDKVersion}'"
+      bugsnag_sdk_version = $BugsnagSDKVersion
+  else
+      Pod::UI.puts "#{s.name}: Using default Bugsnag SDK version '#{bugsnag_sdk_version}'"
+  end
+  
+  if defined?($RudderSDKVersion)
+      Pod::UI.puts "#{s.name}: Using user specified Rudder SDK version '#{$RudderSDKVersion}'"
+      rudder_sdk_version = $RudderSDKVersion
+  else
+      Pod::UI.puts "#{s.name}: Using default Rudder SDK version '#{rudder_sdk_version}'"
+  end
+  
+  s.dependency 'Rudder', rudder_sdk_version
+  s.dependency 'Bugsnag', bugsnag_sdk_version
 end

@@ -8,6 +8,7 @@
 
 #import "_ViewController.h"
 #import <Rudder/Rudder.h>
+#import <Bugsnag/Bugsnag.h>
 
 @interface _ViewController ()
 
@@ -15,23 +16,57 @@
 
 @implementation _ViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-
-    [[RSClient sharedInstance] track:@"account: created"];
-    [[RSClient sharedInstance] track:@"account: authenticated"];
-    [[RSClient sharedInstance] track:@"account: signed in"];
-    [[RSClient sharedInstance] identify:@"ruchiramoitra" traits:@{@"foo": @"bar", @"foo1": @"bar1", @"email": @"ruchira@gmail.com"} ];
-    [[RSClient sharedInstance] screen:@"Screen opened"];
-   
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onButtonTap:(UIButton *)sender {
+    switch (sender.tag) {
+        case 0: {
+            [[RSClient sharedInstance] identify:@"test_userid_ios"];
+            break;
+        case 1: {
+            NSDate *birthday = [[NSDate alloc] init];
+            [[RSClient sharedInstance] identify:@"test_userid_ios" traits: @{
+                @"birthday": birthday,
+                @"address": @{
+                    @"city": @"Kolkata",
+                    @"country": @"India"
+                },
+                @"firstname": @"First Name",
+                @"lastname": @"Last Name",
+                @"name": @"Rudder-Bugsnag iOS",
+                @"gender": @"Male",
+                @"phone": @"0123456789",
+                @"email": @"test@gmail.com",
+                @"key-1": @"value-1",
+                @"key-2": @1234
+            }];
+        }
+            break;
+        case 2:
+            [[RSClient sharedInstance] track:@"New Track event" properties:@{
+                @"key_1" : @"value_1",
+                @"key_2" : @"value_2"
+            }];
+            break;
+        case 3:
+            [[RSClient sharedInstance] screen:@"Home" properties:@{
+                @"key_1" : @"value_1",
+                @"key_2" : @"value_2"
+            }];
+            break;
+        case 4:
+            [Bugsnag notifyError:[NSError errorWithDomain:@"com.example" code:408 userInfo:nil]];
+            break;
+        }
+    }
 }
 
 @end

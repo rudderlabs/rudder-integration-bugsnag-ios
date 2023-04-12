@@ -10,22 +10,29 @@
 #import "_AppDelegate.h"
 #import <Rudder/Rudder.h>
 #import "RudderBugsnagFactory.h"
-
-static NSString *DATA_PLANE_URL = @"https://2f7a352d.ngrok.io";
-static NSString *CONTROL_PLANE_URL = @"https://2f7a352d.ngrok.io";
-static NSString *WRITE_KEY = @"1a1CQbOhJRxXtmz4XtaL5XaZSyD";
+#import "Rudder_Bugsnag_Example-Swift.h"
 
 @implementation _AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
-    [builder withDataPlaneUrl:DATA_PLANE_URL];
-    [builder withControlPlaneUrl:CONTROL_PLANE_URL];
-    [builder withFactory:[RudderBugsnagFactory instance]];
-    [builder withLoglevel:RSLogLevelDebug];
-    [RSClient getInstance:WRITE_KEY config:[builder build]];
+    
+    /// Copy the `SampleRudderConfig.plist` and rename it to`RudderConfig.plist` on the same directory.
+    /// Update the values as per your need.
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"RudderConfig" ofType:@"plist"];
+    if (path != nil) {
+        NSURL *url = [NSURL fileURLWithPath:path];
+        RudderConfig *rudderConfig = [RudderConfig createFrom:url];
+        if (rudderConfig != nil) {
+            RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
+            [builder withDataPlaneUrl:rudderConfig.PROD_DATA_PLANE_URL];
+            [builder withFactory:[RudderBugsnagFactory instance]];
+            [builder withLoglevel:RSLogLevelDebug];
+            [RSClient getInstance:rudderConfig.WRITE_KEY config:[builder build]];
+        }
+    }
     return YES;
 }
 
