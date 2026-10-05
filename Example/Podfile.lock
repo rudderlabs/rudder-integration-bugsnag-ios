@@ -1,7 +1,7 @@
 PODS:
   - Bugsnag (6.26.1)
   - Rudder (1.13.0)
-  - Rudder-Bugsnag (1.0.0):
+  - Rudder-Bugsnag (1.1.0):
     - Bugsnag (~> 6.26)
     - Rudder (~> 1.12)
 
@@ -20,8 +20,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Bugsnag: 2b1b0da4dd885856e23c91b48407ffecca4ba68f
   Rudder: 840bf4dfd9816ce6a82cb8870f1a2d4a44ed2652
-  Rudder-Bugsnag: 6d19c498f36d8a39030d25ed1eb6f53cf7a7d4e2
+  Rudder-Bugsnag: 28e0a12c4ed697fef82a1ad8fd7d70088f581699
 
-PODFILE CHECKSUM: 4b49f707ade36c98ff7eae514bbd2e5c16ff5d97
+PODFILE CHECKSUM: 5db62d0463f93fe6be5fe40861391ec8df8f2d7c
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.17.0
