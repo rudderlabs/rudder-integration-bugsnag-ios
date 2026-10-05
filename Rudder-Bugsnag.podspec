@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.author           = {'RudderStack' => 'arnab@rudderstack.com'}
   s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-bugsnag-ios.git', :tag => "v#{s.version}" }
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '15.0'
   s.source_files = 'Rudder-Bugsnag/Classes/**/*'
 
   if defined?($BugsnagSDKVersion)
